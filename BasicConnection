@@ -1,0 +1,18 @@
+#Worked on 2023.04.11, with this PyMsSql. Didnot work with PyOdbc.
+
+import pymssql
+
+server = 'xxx.xxx.x.x'
+user = 'xx'
+password = 'xxxxx'
+db_name = 'xx'
+
+conn = pymssql.connect(server, user, password,db_name)
+cursor = conn.cursor(as_dict=True)
+
+cursor.execute('SELECT * FROM TableName')
+for row in cursor:
+    #print("ID=%d, Name=%s" % (row['id'], row['name']))
+    print(row)
+
+conn.close()
